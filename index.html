@@ -1,303 +1,310 @@
-    <!DOCTYPE html>
-    <html lang="id">
-    <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Praktikum Pemrograman HTML</title>
-    <style>
-        * {
-        font-family: Arial, sans-serif;
-        box-sizing: border-box;
-        }
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Praktikum Pemrograman HTML</title>
+<style>
+    * {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    }
 
-        body {
-        margin: 0;
-        background-color: #f5f5f5;
-        }
+    body {
+    margin: 0;
+    background-color: #f5f5f5;
+    }
 
-        /* Layout utama */
-        .container {
-        width: 95%;
-        max-width: 1200px; /* lebih besar untuk desktop */
-        background: white;
-        margin: 30px auto;
-        padding: 25px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
+    /* Layout utama */
+    .container {
+    width: 95%;
+    max-width: 1200px; /* lebih besar untuk desktop */
+    background: white;
+    margin: 30px auto;
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
 
-        /* Header */
-        .header {
-        text-align: center;
-        background-color: #1b63ff;
-        color: white;
-        padding: 25px 10px;
-        border-radius: 6px 6px 0 0;
-        }
+    /* Header */
+    .header {
+    display: flex;                /* ubah jadi flex */
+    align-items: center;          /* sejajarkan vertikal */
+    justify-content: center;      /* posisikan di tengah */
+    gap: 20px;                    /* jarak antara logo dan teks */
+    text-align: center;
+    background-color: #1b63ff;
+    color: white;
+    padding: 25px 10px;
+    border-radius: 6px 6px 0 0;
+    flex-wrap: wrap;              /* agar tetap responsif di layar kecil */
+    }
 
-        .header img {
-        width: 80px;
-        }
+    .header img {
+    width: 80px;
+    }
 
-        .header h3 {
-        margin: 10px 0 5px;
-        font-size: 24px;
-        }
+    .header-text h1 {
+    margin: 10px 0 5px;
+    font-size: 24px;
+    }
 
-        .header p {
-        margin: 0;
-        font-size: 15px;
-        line-height: 1.5;
-        }
+    .header-text p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    }
 
-        hr {
-        border: none;
-        border-top: 1px solid #aaa;
-        margin: 25px 0;
-        }
+    hr {
+    border: none;
+    border-top: 1px solid #aaa;
+    margin: 25px 0;
+    }
 
-        h2,h3,h4 {
-        color: #000;
-        margin-top: 25px;
-        }
+    h2,h3,h4 {
+    color: #000;
+    margin-top: 25px;
+    }
 
-        ul,ol {
-        margin-left: 30px;
-        }
+    ul,ol {
+    margin-left: 30px;
+    }
 
-        /* Bungkus tabel agar bisa scroll di layar kecil */
-        .table-wrapper {
-        overflow-x: auto;
-        margin: 10px 0;
-        }
+    /* Bungkus tabel agar bisa scroll di layar kecil */
+    .table-wrapper {
+    overflow-x: auto;
+    margin: 10px 0;
+    }
 
-        table {
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* biar tidak terlalu kecil di HP */
+    background-color: white;
+    }
+
+    th,td {
+    border: 1px solid #999;
+    text-align: left;
+    padding: 8px;
+    vertical-align: top;
+    }
+
+    th {
+    background-color: #e9f0ff;
+    }
+
+    .layout-table {
+    background-color: #fff8dc;
+    border: 2px solid #999;
+    }
+
+    .layout-table th {
+    background-color: #ffeb99;
+    text-align: center;
+    font-weight: bold;
+    }
+
+    .layout-menu {
+    width: 25%;
+    vertical-align: top;
+    padding: 10px;
+    }
+
+    .layout-content {
+    width: 75%;
+    padding: 10px;
+    }
+
+    a {
+    color: #1b63ff;
+    text-decoration: none;
+    }
+
+    a:hover {
+    text-decoration: underline;
+    }
+
+    footer {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+    .layout-menu,
+    .layout-content {
         width: 100%;
-        border-collapse: collapse;
-        min-width: 600px; /* biar tidak terlalu kecil di HP */
-        background-color: white;
-        }
+        display: block;
+    }
 
-        th,td {
-        border: 1px solid #999;
-        text-align: left;
-        padding: 8px;
-        vertical-align: top;
-        }
+    .layout-table th[colspan="2"] {
+        display: block;
+    }
 
-        th {
-        background-color: #e9f0ff;
-        }
+    table {
+        min-width: unset;
+    }
+    }
 
-        .layout-table {
-        background-color: #fff8dc;
-        border: 2px solid #999;
-        }
-
-        .layout-table th {
-        background-color: #ffeb99;
-        text-align: center;
-        font-weight: bold;
-        }
-
-        .layout-menu {
-        width: 25%;
-        vertical-align: top;
-        padding: 10px;
-        }
-
-        .layout-content {
-        width: 75%;
-        padding: 10px;
-        }
-
-        a {
-        color: #1b63ff;
-        text-decoration: none;
-        }
-
-        a:hover {
-        text-decoration: underline;
-        }
-
-        footer {
-        text-align: center;
-        font-size: 14px;
-        margin-top: 30px;
-        padding-top: 10px;
-        border-top: 1px solid #ccc;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-        .layout-menu,
-        .layout-content {
-            width: 100%;
-            display: block;
-        }
-
-        .layout-table th[colspan="2"] {
-            display: block;
-        }
-
-        table {
-            min-width: unset;
-        }
-        }
-
-        @media (max-width: 500px) {
-        .header h1, h3 {
-            font-size: 18px;
-        }
-        .header p {
-            font-size: 13px;
-        }
-        .container {
-            padding: 15px;
-        }
-        }
-    </style>
-    </head>
-    <body>
-    <div class="container">
-        <!-- HEADER -->
-        <div class="header">
-        <img src="Logo Muhtiga.png" alt="Logo" />
+    @media (max-width: 500px) {
+    .header h1, h3 {
+        font-size: 18px;
+    }
+    .header p {
+        font-size: 13px;
+    }
+    .container {
+        padding: 15px;
+    }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <!-- HEADER -->
+    <div class="header">
+      <img src="Logo Muhtiga.png" alt="Logo" />
+      <div class="header-text">
         <h1>SMK MUHAMMADIYAH 3 TANGERANG SELATAN</h1>
         <p>
-            Program Keahlian Rekayasa Perangkat Lunak <br />
-            Modul 0.1 - Praktikum Pemrograman HTML (HTML, PHP, dan CSS)
+          Program Keahlian Rekayasa Perangkat Lunak <br />
+          Modul 0.1 - Praktikum Pemrograman HTML (HTML, PHP, dan CSS)
         </p>
-        </div>
-
-        <div class="main" style="text-align: center">
-        <h2>Praktikum Pemrograman HTML</h2>
-        <h3>HTML, PHP, dan CSS</h3>
-        <p>Disusun oleh: <b>Tegar Permana Putra</b></p>
-        </div>
-
-        <hr />
-
-        <h2>1. Tujuan</h2>
-        <ul>
-        <li>Peserta didik dapat memahami dasar pemrograman server-side menggunakan HTML.</li>
-        <li>Peserta didik mengetahui sintaks dasar HTML.</li>
-        <li>Peserta didik mampu menyelesaikan permasalahan sederhana menggunakan HTML.</li>
-        </ul>
-
-        <h2>2. Dasar Teori</h2>
-        <p>
-        HTML (HyperText Markup Language) merupakan bahasa markup untuk menyusun halaman web yang dapat dibaca oleh browser.
-        Browser seperti Google Chrome atau Firefox akan menerjemahkan kode HTML menjadi tampilan visual halaman web.
-        </p>
-
-        <h3>Beberapa Elemen HTML yang Sering Digunakan:</h3>
-        <div class="table-wrapper">
-        <table>
-            <tr><th>Tag</th><th>Fungsi</th></tr>
-            <tr><td>&lt;h1&gt;-&lt;h6&gt;</td><td>Judul atau heading</td></tr>
-            <tr><td>&lt;p&gt;</td><td>Paragraf teks</td></tr>
-            <tr><td>&lt;a&gt;</td><td>Hyperlink</td></tr>
-            <tr><td>&lt;img&gt;</td><td>Menampilkan gambar</td></tr>
-            <tr><td>&lt;br&gt;</td><td>Ganti baris</td></tr>
-            <tr><td>&lt;hr&gt;</td><td>Garis pemisah horizontal</td></tr>
-            <tr><td>&lt;b&gt;</td><td>Teks tebal</td></tr>
-            <tr><td>&lt;i&gt;</td><td>Teks miring</td></tr>
-        </table>
-        </div>
-
-        <h2>3. Langkah Percobaan</h2>
-
-        <h3>3.1 Heading HTML</h3>
-        <h1>This is heading 1</h1>
-        <h2>This is heading 2</h2>
-        <h3>This is heading 3</h3>
-        <h4>This is heading 4</h4>
-        <h5>This is heading 5</h5>
-        <h6>This is heading 6</h6>
-
-        <h3>3.2 Paragraf HTML</h3>
-        <p>This is a paragraph.</p>
-        <p>This is another paragraph.</p>
-
-        <h3>3.3 HTML Link</h3>
-        <a href="https://www.w3schools.com/html/" target="_blank">This is a link to W3Schools</a>
-
-        <h3>3.4 HTML Image</h3>
-        <img src="Logo PENS.png" alt="Logo PENS" width="100" /><br />
-        <em>Politeknik Elektronika Negeri Surabaya</em>
-
-        <h3>3.5 Garis Horizontal</h3>
-        <p>The <code>&lt;hr&gt;</code> tag defines a horizontal rule:</p>
-        <hr />
-        <p>This is a paragraph after the horizontal rule.</p>
-
-        <h3>3.6 Ganti Baris</h3>
-        <p>This is <br />a <br />paragraph.</p>
-
-        <h3>3.7 Format Teks HTML</h3>
-        <p>This text is <b>bold</b>.</p>
-        <p>This text is <i>italic</i>.</p>
-        <p>This text is <u>underlined</u>.</p>
-        <p>This is <sub>subscript</sub> and <sup>superscript</sup> text.</p>
-
-        <h3>3.8 HTML Table</h3>
-        <div class="table-wrapper">
-        <table>
-            <tr><th>Firstname</th><th>Lastname</th><th>Points</th></tr>
-            <tr><td>Jill</td><td>Smith</td><td>50</td></tr>
-            <tr><td>Eve</td><td>Jackson</td><td>94</td></tr>
-            <tr><td>John</td><td>Doe</td><td>80</td></tr>
-        </table>
-        </div>
-
-        <h3>3.9 HTML List</h3>
-        <h4>Unordered List</h4>
-        <ul>
-        <li>Apples</li>
-        <li>Bananas</li>
-        <li>Lemons</li>
-        <li>Oranges</li>
-        </ul>
-
-        <h4>Ordered List</h4>
-        <ol>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        </ol>
-
-        <h3>3.10 HTML Layout</h3>
-        <div class="table-wrapper">
-        <table class="layout-table">
-            <tr>
-            <th colspan="2">Main Title of Web Page</th>
-            </tr>
-            <tr>
-            <td class="layout-menu">
-                <b>Menu</b><br />
-                HTML<br />
-                CSS<br />
-                JavaScript
-            </td>
-            <td class="layout-content">Content goes here...</td>
-            </tr>
-            <tr>
-            <td colspan="2" style="text-align: center; font-size: 14px">
-                Copyright &copy; SMK Muhammadiyah 3 Tangerang Selatan
-            </td>
-            </tr>
-        </table>
-        </div>
-
-        <footer>
-        <p>
-            <b>Modul 0.1 - Praktikum Pemrograman HTML</b><br />
-            SMK Muhammadiyah 3 Tangerang Selatan<br />
-            Program Keahlian Rekayasa Perangkat Lunak
-        </p>
-        </footer>
+      </div>
     </div>
-    </body>
-    </html>
+
+    <div class="main" style="text-align: center">
+    <h2>Praktikum Pemrograman HTML</h2>
+    <h3>HTML, PHP, dan CSS</h3>
+    <p>Disusun oleh: <b>Tegar Permana Putra</b></p>
+    </div>
+
+    <hr />
+
+    <h2>1. Tujuan</h2>
+    <ul>
+    <li>Peserta didik dapat memahami dasar pemrograman server-side menggunakan HTML.</li>
+    <li>Peserta didik mengetahui sintaks dasar HTML.</li>
+    <li>Peserta didik mampu menyelesaikan permasalahan sederhana menggunakan HTML.</li>
+    </ul>
+
+    <h2>2. Dasar Teori</h2>
+    <p>
+    HTML (HyperText Markup Language) merupakan bahasa markup untuk menyusun halaman web yang dapat dibaca oleh browser.
+    Browser seperti Google Chrome atau Firefox akan menerjemahkan kode HTML menjadi tampilan visual halaman web.
+    </p>
+
+    <h3>Beberapa Elemen HTML yang Sering Digunakan:</h3>
+    <div class="table-wrapper">
+    <table>
+        <tr><th>Tag</th><th>Fungsi</th></tr>
+        <tr><td>&lt;h1&gt;-&lt;h6&gt;</td><td>Judul atau heading</td></tr>
+        <tr><td>&lt;p&gt;</td><td>Paragraf teks</td></tr>
+        <tr><td>&lt;a&gt;</td><td>Hyperlink</td></tr>
+        <tr><td>&lt;img&gt;</td><td>Menampilkan gambar</td></tr>
+        <tr><td>&lt;br&gt;</td><td>Ganti baris</td></tr>
+        <tr><td>&lt;hr&gt;</td><td>Garis pemisah horizontal</td></tr>
+        <tr><td>&lt;b&gt;</td><td>Teks tebal</td></tr>
+        <tr><td>&lt;i&gt;</td><td>Teks miring</td></tr>
+    </table>
+    </div>
+
+    <h2>3. Langkah Percobaan</h2>
+
+    <h3>3.1 Heading HTML</h3>
+    <h1>This is heading 1</h1>
+    <h2>This is heading 2</h2>
+    <h3>This is heading 3</h3>
+    <h4>This is heading 4</h4>
+    <h5>This is heading 5</h5>
+    <h6>This is heading 6</h6>
+
+    <h3>3.2 Paragraf HTML</h3>
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+
+    <h3>3.3 HTML Link</h3>
+    <a href="https://www.w3schools.com/html/" target="_blank">This is a link to W3Schools</a>
+
+    <h3>3.4 HTML Image</h3>
+    <img src="Logo PENS.png" alt="Logo PENS" width="100" /><br />
+    <em>Politeknik Elektronika Negeri Surabaya</em>
+
+    <h3>3.5 Garis Horizontal</h3>
+    <p>The <code>&lt;hr&gt;</code> tag defines a horizontal rule:</p>
+    <hr />
+    <p>This is a paragraph after the horizontal rule.</p>
+
+    <h3>3.6 Ganti Baris</h3>
+    <p>This is <br />a <br />paragraph.</p>
+
+    <h3>3.7 Format Teks HTML</h3>
+    <p>This text is <b>bold</b>.</p>
+    <p>This text is <i>italic</i>.</p>
+    <p>This text is <u>underlined</u>.</p>
+    <p>This is <sub>subscript</sub> and <sup>superscript</sup> text.</p>
+
+    <h3>3.8 HTML Table</h3>
+    <div class="table-wrapper">
+    <table>
+        <tr><th>Firstname</th><th>Lastname</th><th>Points</th></tr>
+        <tr><td>Jill</td><td>Smith</td><td>50</td></tr>
+        <tr><td>Eve</td><td>Jackson</td><td>94</td></tr>
+        <tr><td>John</td><td>Doe</td><td>80</td></tr>
+    </table>
+    </div>
+
+    <h3>3.9 HTML List</h3>
+    <h4>Unordered List</h4>
+    <ul>
+    <li>Apples</li>
+    <li>Bananas</li>
+    <li>Lemons</li>
+    <li>Oranges</li>
+    </ul>
+
+    <h4>Ordered List</h4>
+    <ol>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    </ol>
+
+    <h3>3.10 HTML Layout</h3>
+    <div class="table-wrapper">
+    <table class="layout-table">
+        <tr>
+        <th colspan="2">Main Title of Web Page</th>
+        </tr>
+        <tr>
+        <td class="layout-menu">
+            <b>Menu</b><br />
+            HTML<br />
+            CSS<br />
+            JavaScript
+        </td>
+        <td class="layout-content">Content goes here...</td>
+        </tr>
+        <tr>
+        <td colspan="2" style="text-align: center; font-size: 14px">
+            Copyright &copy; SMK Muhammadiyah 3 Tangerang Selatan
+        </td>
+        </tr>
+    </table>
+    </div>
+
+    <footer>
+    <p>
+        <b>Modul 0.1 - Praktikum Pemrograman HTML</b><br />
+        SMK Muhammadiyah 3 Tangerang Selatan<br />
+        Program Keahlian Rekayasa Perangkat Lunak
+    </p>
+    </footer>
+</div>
+</body>
+</html>
