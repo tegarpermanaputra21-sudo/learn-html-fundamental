@@ -8,19 +8,20 @@
 
 ---
 
-## 🧩 Judul / Nama Proyek
+## 🧩 Nama Proyek
 **Judul:** Tugas Pertemuan 0 (learn html fundamental).
 
 ---
 
-## 🎯 Tujuan Tugas
+## 🎯 Tujuan 
  Tugas ini bertujuan untuk menguji kemampuan siswa dalam menerapkan dasar-dasar pemrograman web menggunakan HTML dasar.
 
 ---
 
-## ⚙️ Alat dan Bahan / Software yang Digunakan
+## ⚙️ Software yang Digunakan
 - [ ] Visual Studio Code  
 - [ ] Browser (Google Chrome / Edge)  
 - [ ] GitHub (untuk dokumentasi tugas)   
 
 ---
+
